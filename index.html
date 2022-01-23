@@ -1,0 +1,30 @@
+<input type="text" oninput="value = value.replace(/[^0-9.]+/i,'');"/> %
+
+
+<script type="text/javascript">
+  let regex = /apple/;
+  let str = 'I like apple';
+
+// 文字列が正規表現とマッチするかテストする
+console.log(regex.test(str));
+
+// 正規表現にマッチした文字列を取得する
+let result1 = regex.exec(str);
+console.log(result1[0]);
+
+// 正規表現にマッチした文字列のインデックスを取得する
+console.log(str.search(regex));
+
+// 正規表現にマッチしたすべての文字列を取得する
+let result2 = str.match(regex);
+console.log(result2[0]);
+
+// 文字列を正規表現を使った区切り文字で分割する
+let strAry = str.split(/[ ]/);
+console.log(strAry);
+
+// 正規表現を使って指定した文字列を新しい文字列に置換する
+let newstr = str.replace(/apple/, 'Apple');
+console.log(newstr);
+
+</script>
