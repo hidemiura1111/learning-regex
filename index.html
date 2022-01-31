@@ -1,10 +1,38 @@
-<input type="text" oninput="value = value.replace(/[^0-9]+/i,'');"/> %
+<p>Only number</p>
+<input type="text" oninput="value = value.replace(/[^0-9]+/i,'');"/>
+<input type="text" oninput="value = value.replace(/[^\d]+/i,'');"/>
+<p>Alphabet, number, underscore, space</p>
+<input type="text" oninput="value = value.replace(/[^\w^\s]+/i,'');"/>
+
 
 
 <script type="text/javascript">
-  let regex = /apple/;
-  let str = 'I like apple';
 
+let regex_B = /\Bon/;
+console.log(regex_B.test('the son'));
+console.log(regex_B.test('once more'));
+
+let regex_b = /\bmy/;
+console.log(regex_b.test('This is mystery book.'));
+console.log(regex_b.test('This is a book of Tommy.'));
+
+let regex_b_ = /my\b/;
+console.log(regex_b_.test('This is mystery book.'));
+console.log(regex_b_.test('This is a book of Tommy.'));
+
+
+let regex_start_end = /^tar$/;
+console.log(regex_start_end.test('tar'));
+console.log(regex_start_end.test('aear'));
+console.log(regex_start_end.test('tea'));
+
+let regex_tel = /043-\d{4}-\d{4}/;
+console.log(regex_tel.test('043-0088-9055'));
+console.log(regex_tel.test('043-0088-905'));
+console.log(regex_tel.test('043-0088-905e'));
+
+let regex = /apple/;
+let str = 'I like apple';
 // 文字列が正規表現とマッチするかテストする
 console.log(regex.test(str));
 
