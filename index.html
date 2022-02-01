@@ -8,28 +8,63 @@
 
 <script type="text/javascript">
 
+let regex_meta = /(test\.com)/;
+console.log(regex_meta.test('test.com')); //true
+console.log(regex_meta.test('test_com')); //false
+
+let regex_pattern = /pattern(1|2)/;
+console.log(regex_pattern.test('pattern1')); //true
+console.log(regex_pattern.test('pattern2')); //true
+console.log(regex_pattern.test('pattern3')); //false
+
+let regex_repeat5 = /to{2,4}l/;
+console.log(regex_repeat5.test('tool')); //true
+console.log(regex_repeat5.test('tooool')); //true
+console.log(regex_repeat5.test('toooool')); //false
+
+
+let regex_repeat4 = /to{3}l/;
+console.log(regex_repeat4.test('toool')); //true
+console.log(regex_repeat4.test('tool')); //false
+
+let regex_repeat3 = /to?l/;
+console.log(regex_repeat3.test('tl')); //true
+console.log(regex_repeat3.test('tol')); //true
+console.log(regex_repeat3.test('tool')); //false
+
+let regex_repeat2 = /to*l/;
+console.log(regex_repeat2.test('tl')); //true
+console.log(regex_repeat2.test('tol')); //true
+console.log(regex_repeat2.test('toooooool')); //true
+console.log(regex_repeat2.test('toooeooool')); //false
+
+let regex_repeat1 = /to+l/;
+console.log(regex_repeat1.test('tol')); //true
+console.log(regex_repeat1.test('toooooool')); //true
+console.log(regex_repeat1.test('tl')); //false
+
 let regex_B = /\Bon/;
-console.log(regex_B.test('the son'));
-console.log(regex_B.test('once more'));
+console.log(regex_B.test('the son')); //true
+console.log(regex_B.test('once more')); //false
 
 let regex_b = /\bmy/;
-console.log(regex_b.test('This is mystery book.'));
-console.log(regex_b.test('This is a book of Tommy.'));
+console.log(regex_b.test('This is mystery book.')); //true
+console.log(regex_b.test('This is a book of Tommy.')); //false
 
 let regex_b_ = /my\b/;
-console.log(regex_b_.test('This is mystery book.'));
-console.log(regex_b_.test('This is a book of Tommy.'));
+console.log(regex_b_.test('This is a book of Tommy.')); //true
+console.log(regex_b_.test('This is mystery book.')); //false
 
 
 let regex_start_end = /^tar$/;
-console.log(regex_start_end.test('tar'));
-console.log(regex_start_end.test('aear'));
-console.log(regex_start_end.test('tea'));
+console.log(regex_start_end.test('tar')); //true
+console.log(regex_start_end.test('aear')); //false
+console.log(regex_start_end.test('tea')); //false
 
 let regex_tel = /043-\d{4}-\d{4}/;
-console.log(regex_tel.test('043-0088-9055'));
-console.log(regex_tel.test('043-0088-905'));
-console.log(regex_tel.test('043-0088-905e'));
+console.log(regex_tel.test('043-0088-9055')); //true
+console.log(regex_tel.test('043-0088-905')); //false
+console.log(regex_tel.test('043-0088-905e')); //false
 
 let regex = /apple/;
 let str = 'I like apple';
