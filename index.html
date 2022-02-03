@@ -1,12 +1,37 @@
-<p>Only number</p>
-<input type="text" oninput="value = value.replace(/[^0-9]+/i,'');"/>
-<input type="text" oninput="value = value.replace(/[^\d]+/i,'');"/>
-<p>Alphabet, number, underscore, space</p>
-<input type="text" oninput="value = value.replace(/[^\w^\s]+/i,'');"/>
-
-
+<head>
+  <style>
+  body{
+    background-color: #000;
+    color: #fff;
+  }
+  </style>
+</head>
+<body>
+  <p>Only number</p>
+  <input type="text" oninput="value = value.replace(/[^0-9]+/i,'');"/>
+  <input type="text" oninput="value = value.replace(/[^\d]+/i,'');"/>
+  <p>Alphabet, number, underscore, space</p>
+  <input type="text" oninput="value = value.replace(/[^\w^\s]+/i,'');"/>
+</body>
 
 <script type="text/javascript">
+const regex_2 = /(?<=pe)Script/;
+console.log(regex_2.test('TypeScript')); //true
+console.log(regex_2.test('JavaScript')); //false
+
+
+const regex_1 = /(?=.*[A-Z]).{5}/;
+console.log(regex_1.test('Happy')); //true
+console.log(regex_1.test('drINk')); //true
+console.log(regex_1.test('happy')); //false
+console.log(regex_1.test('Happyyyy')); //true
+console.log(regex_1.test('Hap')); //false
+
+const regex_front = /Word(?=Press)/;
+console.log(regex_front.test('WordPress')); //true
+console.log(regex_front.test('WordBook')); //false
+let result_front = regex_front.exec('WordPress');
+console.log(result_front[0]); // Word
 
 const regex_min = /b.+?a/;
 let result_min = regex_min.exec('breakfast is bread');
