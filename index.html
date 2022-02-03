@@ -8,6 +8,14 @@
 
 <script type="text/javascript">
 
+const regex_min = /b.+?a/;
+let result_min = regex_min.exec('breakfast is bread');
+console.log(result_min[0]); //brea
+
+const regex_max = /r.+a/;
+let result_max = regex_max.exec('breakfast is bread');
+console.log(result_max[0]); //reakfast is brea
+
 let regex_meta = /(test\.com)/;
 console.log(regex_meta.test('test.com')); //true
 console.log(regex_meta.test('test_com')); //false
