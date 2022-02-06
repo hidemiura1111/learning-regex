@@ -15,8 +15,12 @@
 </body>
 
 <script type="text/javascript">
-const regex_3 = /<(.+)>.*<\/\1>/;
+const regex_4 = /^[+-]?[0-9]+$/;
+console.log(regex_4.test('1028')); //true
+console.log(regex_4.test('-48')); //true
+console.log(regex_4.test('AA')); //false
 
+const regex_3 = /<(.+)>.*<\/\1>/;
 let result_3 = regex_3.exec('AA <p>BB CC <span>DD</span> EE</p> FF');
 console.log(result_3[0]);
 // --> <p>BB CC <span>DD</span> EE</p>
@@ -24,7 +28,6 @@ console.log(result_3[0]);
 const regex_2 = /(?<=pe)Script/;
 console.log(regex_2.test('TypeScript')); //true
 console.log(regex_2.test('JavaScript')); //false
-
 
 const regex_1 = /(?=.*[A-Z]).{5}/;
 console.log(regex_1.test('Happy')); //true
