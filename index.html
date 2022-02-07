@@ -10,11 +10,34 @@
   <p>Only number</p>
   <input type="text" oninput="value = value.replace(/[^0-9]+/i,'');"/>
   <input type="text" oninput="value = value.replace(/[^\d]+/i,'');"/>
+  <p>Only number and floating point</p>
+  <input type="text" oninput="value = value.replace(/[^0-9]+[^\.]?[^0-9]+/i,'');"/>
   <p>Alphabet, number, underscore, space</p>
   <input type="text" oninput="value = value.replace(/[^\w^\s]+/i,'');"/>
 </body>
 
 <script type="text/javascript">
+// Domain
+const regex_7 = /^([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/;
+console.log(regex_7.test('example.com')); //true
+console.log(regex_7.test('sub.example-2048.jp')); //true
+console.log(regex_7.test('examplejp')); // false トップレベルドメインがない
+console.log(regex_7.test('example.c')); //false トップレベルドメインの文字数 
+
+// Floating Point
+const regex_6 = /^[+-]?[0-9]+\.[0-9]+([eE][+-]?[0-9]+)?$/;
+console.log(regex_6.test('43.175')); //true
+console.log(regex_6.test('-4.2e5')); //true
+console.log(regex_6.test('2.018E-3')); //true
+console.log(regex_6.test('38')); //false 小数部分がない
+
+// Only alphabet and number
+const regex_5 = /^[0-9a-zA-Z]+$/;
+console.log(regex_5.test('Hello')); //true
+console.log(regex_5.test('width100px')); //true
+console.log(regex_5.test('Try&Test')); //false 使用できない文字種
+
+// Decimal Number
 const regex_4 = /^[+-]?[0-9]+$/;
 console.log(regex_4.test('1028')); //true
 console.log(regex_4.test('-48')); //true
