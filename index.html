@@ -17,6 +17,20 @@
 </body>
 
 <script type="text/javascript">
+// IP address
+const regex_9 = /^((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])$/;
+console.log(regex_9.test('192.168.0.24')); //true
+console.log(regex_9.test('255.255.255.0')); //true
+console.log(regex_9.test('10.44.36')); //false 最後のブロックがない
+console.log(regex_9.test('255.128.302.4')); //false 3つ目のブロックが範囲外 
+
+// mail address
+const regex_8 = /^[a-zA-Z0-9_.+-]+@([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/;
+console.log(regex_8.test('hoge@example.com')); //true
+console.log(regex_8.test('yamada.tarou@example.com')); //true
+console.log(regex_8.test('suzuki.example.com')); //false ローカル部分がない
+console.log(regex_8.test('kudou#jirou@examle.com')); //false ローカル部分で使用できない文字種 
+
 // Domain
 const regex_7 = /^([a-zA-Z0-9][a-zA-Z0-9-]*[a-zA-Z0-9]*\.)+[a-zA-Z]{2,}$/;
 console.log(regex_7.test('example.com')); //true
